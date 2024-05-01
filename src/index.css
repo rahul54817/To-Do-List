@@ -1,0 +1,79 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.todo-item input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.todo-item span {
+  flex: 1;
+  font-size: 18px;
+  color: #333;
+}
+
+.todo-item button {
+  border: none;
+  background-color: transparent;
+  color: #f44336;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.add-todo-form {
+  display: flex;
+}
+
+.add-todo-form input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+}
+
+.add-todo-form button {
+  padding: 10px;
+  border: none;
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.add-todo-form button:hover {
+  background-color: #45a049;
+}
+
+.list-items {
+  gap: 2;
+  margin-top: 10px;
+}
