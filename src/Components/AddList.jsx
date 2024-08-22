@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useState } from "react";
 
 const AddList = () => {
   let [task, setTask] = useState("");
 
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(()=> {
+    const localList = localStorage.getItem("todo-items")
+
+    if(localList){
+      return JSON.parse(localList)
+    }
+    else 
+     return []
+  });
 
   function addTaks(event) {
     event.preventDefault();
@@ -17,9 +25,11 @@ const AddList = () => {
         id: Date.now(),
       };
 
+
       console.log("Data  : " + data.msg);
 
       setList((prevList) => [...prevList, data]);
+      localStorage.setItem("todo-items", JSON.stringify(list))
       setTask("");
     }
   }
@@ -27,6 +37,11 @@ const AddList = () => {
   const deletTask = (id) => {
     setList((prevList) => prevList.filter((item) => item.id !== id));
   };
+
+  useEffect(() => {
+    // Update local storage whenever the list changes
+    localStorage.setItem("todo-items", JSON.stringify(list));
+  }, [list]);
 
   return (
     <>
